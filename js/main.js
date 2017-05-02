@@ -18,4 +18,13 @@ $(document).ready(function() {
       itemsMobile : false
  
   });
+
+  $('.btn-hover').mouseover (function() {
+    $(this).parents('.block__plans__box').find('.block__plans__box--name').addClass('active');
+  });
+
+  $('.btn-hover').mouseleave (function() {
+    $(this).parents('.block__plans__box').find('.block__plans__box--name').removeClass('active');
+  });
+
 });

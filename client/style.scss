@@ -118,6 +118,10 @@ body {
     margin-bottom: 30px;
 }
 
+.active {
+    background-color: $main-green-color !important;
+}
+
 @media (min-width: 1200px) {
     .owl-carousel__slide {
         min-height: 550px;
