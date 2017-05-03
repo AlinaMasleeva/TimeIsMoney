@@ -30,6 +30,7 @@ body {line-height: 2;}
 html{height:100%; -webkit-text-size-adjust: none;-ms-text-size-adjust: none;}
 input, textarea {font-family:inherit; color: inherit; outline:none; border-radius: 0; -moz-border-radius: 0; -webkit-border-radius: 0; -webkit-appearance: none;}
 input[type="button"], input[type="submit"], button {cursor: pointer}
+textarea {resize: none;}
 form{padding: 0; margin: 0;}
 p {line-height: 1.5;}
 a{color: $dark-grey-color; -moz-transition: all 0.2s linear; -ms-transition: all 0.2s linear; -o-transition: all 0.2s linear; -webkit-transition: all 0.2s linear; transition: all 0.2s linear; text-decoration:none; outline:none;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
@@ -121,6 +122,10 @@ body {
 .text-grey {
     color: #aaaaaa;
 }
+.error {
+    color: red;
+    display: none;
+}
 
 // TABLE GRID
 .grid, .container {
@@ -163,10 +168,14 @@ input:focus:-ms-input-placeholder        {opacity: 0; transition: opacity 0.3s e
 }
 
 .form-inline {
-    display: inline-block;
+    text-align-last: justify;
+    .form-group {
+        display: inline-block;
+        vertical-align: middle;
+        width: 48%;
+    }
     .form-input {
         display: inline-block;
-        width: auto;
         vertical-align: middle;
     }
 }
@@ -188,18 +197,17 @@ input:focus:-ms-input-placeholder        {opacity: 0; transition: opacity 0.3s e
     -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
-.error-text {
+input.error {
+    border: 1px solid #ff8383;
+    box-shadow: inset 0 0 10px 5px rgba(255,131,131,.3);
+}
+input.error~span.error {
+    display: inline-block;
     position: absolute;
-    top: 30px;
-    left: 10px;
-    color: red;
-    font-weight: 400;
-    font-style: italic;
-    display: none;
+    top: -20px;
+    font-size: 12px;
 }
-.has-error .error-text {
-    display: block;
-}
+
 
 // PADDINGS MARGINS
 .margin-bottom {
@@ -555,7 +563,10 @@ input:focus:-ms-input-placeholder        {opacity: 0; transition: opacity 0.3s e
     }
 
     &__contact {
-        background: url('../img/bg-contact.png');
+        background: url('../img/bg-contact.png') no-repeat 100% 100%;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
         color: #ffffff;
         &--social {
             margin-top: 30px;
@@ -585,7 +596,9 @@ input:focus:-ms-input-placeholder        {opacity: 0; transition: opacity 0.3s e
             }
         }
         &--form {
-
+            .form-btn {
+                text-align: right;
+            }
         }
     }
 }
