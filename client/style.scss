@@ -217,10 +217,6 @@ input.error~span.error {
     padding-top: $padding-top;
 }
 
-//ACTIVE
-.active {
-    background-color: $main-green-color !important;
-}
 
 @media (min-width: 1200px) {
     .owl-carousel__slide {
@@ -378,7 +374,8 @@ input.error~span.error {
     .navbar-nav {
         float: right;
         margin: 0;
-        .active>a, .active>a:focus, .active>a:hover {
+        .active>a, .active>a:focus, .active>a:hover,
+        a:hover, a:active, a:focus {
             color: $main-green-color;
             background-color: $shadow-color;
             border-bottom: 3px solid $main-green-color;

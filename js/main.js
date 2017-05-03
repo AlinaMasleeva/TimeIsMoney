@@ -27,6 +27,9 @@ $(document).ready(function() {
     $(this).parents('.block__plans__box').find('.block__plans__box--name').removeClass('active');
   });
 
+
+// Validate Form
+
   $('#contactForm').validate({
     rules: {
       contactName: {
@@ -39,7 +42,7 @@ $(document).ready(function() {
       }
     },
     submitHandler: function(form) {
-      // form.submit();
+       form.submit();
     },
     success: "valid",
     submitHandler: function() { alert("Submitted!") }
@@ -50,5 +53,29 @@ $(document).ready(function() {
     minlength: jQuery.validator.format(" "),
     required: " ",
   });
+
+
+// Scroll menu
+  $("#menu").on("click", "a", function (event) {
+
+        var id = $(this).attr('href');
+        var idPart = "#" + id.split("#")[1];
+        var element = $(idPart);
+        if (element != undefined && element.length > 0) {
+            $('body,html').animate({
+                scrollTop: $(idPart).offset().top
+            }, 1000);
+        }
+        else {
+            alert("Element with id='" + idPart + "' not found. Fix the error to make button working");
+        }
+        event.preventDefault();
+        
+        var $this = $(this);
+        $this.closest('ul').find('.active').removeClass('active');
+        $this.parent().addClass('active');
+
+        return false;
+    });
 
 });
